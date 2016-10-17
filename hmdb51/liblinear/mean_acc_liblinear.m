@@ -1,0 +1,27 @@
+clc;
+clear all;
+close all;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+Train_Test_rate=0.8;
+loop_num=10;
+for i=1:loop_num
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    [train_data,train_label]=hist_2_train_test_randsample_plus(Train_Test_rate);
+    %使用liblinear 1 vs  rest策略
+    fprintf('训练样本加载完毕!\n');
+    
+    options='-s 4 -c 100';
+    train_model= train(train_label,sparse(train_data),options);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+    fprintf('训练完毕!\n');
+    clear train_data;
+    %%加载测试数据集
+    test_data=load('test_data.mat');
+    test_data=test_data.test_data;
+    test_label=load('test_label.mat');
+    test_label=test_label.test_label;
+    fprintf('测试样本加载完毕!\n');
+    [predictlabel,accuracy,prob_estimates]= predict(test_label,sparse(test_data),train_model,'-b 1');
+    clear test_data;
+    acc_times(i,1)=max(accuracy);
+end
+fprintf('训练预测完毕!\n');
+mean(acc_times)
