@@ -1,0 +1,10 @@
+minling='scp xuliang@115.156.164.33:/home/xuliang/BOF+Kernel/centers_HOF.mat /home/xl/Action_Recognition/Tran_test_plus'
+[status,result]=system(minling)
+minling='scp xuliang@115.156.164.33:/home/xuliang/BOF+Kernel/centers_Tarjectory.mat /home/xl/Action_Recognition/Tran_test_plus'
+[status,result]=system(minling)
+minling='scp xuliang@115.156.164.33:/home/xuliang/BOF+Kernel/centers_HOG.mat /home/xl/Action_Recognition/Tran_test_plus'
+[status,result]=system(minling)
+minling='scp xuliang@115.156.164.33:/home/xuliang/BOF+Kernel/centers_MBHx.mat /home/xl/Action_Recognition/Tran_test_plus'
+[status,result]=system(minling)
+minling='scp xuliang@115.156.164.33:/home/xuliang/BOF+Kernel/centers_MBHy.mat /home/xl/Action_Recognition/Tran_test_plus'
+[status,result]=system(minling)
